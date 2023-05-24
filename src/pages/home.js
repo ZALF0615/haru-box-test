@@ -9,7 +9,7 @@ import { onSnapshot, query, orderBy } from "firebase/firestore";
 import axios from 'axios';
 
 function DiaryPage() {
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(new Date().toLocaleDateString('ko-KR'));
   const [content, setContent] = useState('');
   const [emotion, setEmotion] = useState(1);
   const [imgFile, setImgFile] = useState(null);
@@ -17,7 +17,7 @@ function DiaryPage() {
   const [diaries, setDiaries] = useState([]);
   const [selectedDiary, setSelectedDiary] = useState(null);
   const [showInstructions, setShowInstructions] = useState(false);
-
+  
   const router = useRouter();
   const { data: session, status } = useSession();
 
@@ -36,7 +36,7 @@ function DiaryPage() {
 
       snapshot.forEach(async (doc) => { // forEach 콜백 함수를 비동기 함수로 변경
         const data = doc.data();
-        const date = data.date ? data.date.toDate().toISOString().slice(0, 10) : null;
+        const date = data.date ? data.date.toDate().toLocaleDateString('ko-KR') : null;
         const diary = {
           id: doc.id,
           content: data.content,
