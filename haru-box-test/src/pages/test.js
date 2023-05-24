@@ -99,7 +99,7 @@ function DiaryPage() {
       onClick={() => setSelectedDiary(diary)}
       className="cursor-pointer hover:bg-gray-200 flex justify-between"
     >
-      <span>{diary.content.length > 15 ? diary.content.substring(0, 15) + "..." : diary.content}</span>
+      <span>{diary.content.length > 20 ? diary.content.substring(0, 20) + "..." : diary.content}</span>
       <span>{diary.date}</span>
     </p>
   ))}
