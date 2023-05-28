@@ -17,7 +17,7 @@ export default function Signin() {
                     bg-blue-500 text-white
                       border border-blue-500 rounded
                     hover:bg-white hover:text-blue-500`}
-            onClick={() => router.push("/home")}
+            onClick={() => router.push("/")}
           >
             Go to Home
           </button>
