@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useTransition } from 'react';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import React, { useState, useEffect } from 'react';
+import { getStorage } from 'firebase/storage';
 import "firebase/firestore";
 import { db } from "@/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
-import { onSnapshot, query, orderBy } from "firebase/firestore";
-import axios from 'axios';
-import ImageForm from '../components/ImageForm';
-// import { Link } from 'react-router-dom';
 
 const DiaryPage = () => {
     const [date, setDate] = useState(new Date().toLocaleDateString('ko-KR'));
